@@ -17,16 +17,16 @@ export const searchSkiResorts = (searchTerm) => {
   }
 }
 
-export const showError = (errorMessage) => {
-  return {
-    type: SHOW_ERROR,
-    errorMessage
-  }
-}
+// export const showError = (errorMessage) => {
+//   return {
+//     type: SHOW_ERROR,
+//     errorMessage
+//   }
+// }
 
 export function fetchSkiResorts (searchTerm) {
   return (dispatch) => {
-    dispatch(requestSkiResorts())
+    console.log(searchTerm)
     dispatch(searchSkiResorts(searchTerm.toLowerCase()))
   }
 }

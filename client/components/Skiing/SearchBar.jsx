@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchSkiResorts } from '../actions'
+import { fetchSkiResorts } from '../../actions'
 import SkiResorts from './SkiResorts'
 
 class SearchBar extends React.Component {
