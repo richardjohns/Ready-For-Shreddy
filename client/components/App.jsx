@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import SkiResorts from './SkiResorts'
 import SearchBar from './SearchBar'
@@ -10,12 +10,11 @@ class App extends React.Component {
   render () {
     return (
         <div className="container">
-          <SearchBar />
-
-          <AccomRoutes />
+          <Route>
+            <SearchBar />
+            <AccomRoutes />
+        </Route>
       </div>
-
-
     )
   }
 }
