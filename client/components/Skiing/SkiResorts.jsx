@@ -6,16 +6,15 @@ import data from '../../../data.json'
 
 const SkiResorts = (props) => {
   return (
-    <div className="" style={ {overflow: 'scroll', height: '50vh'} } >
-      {(props.skiResorts.length != 0 && props.searchBar.length > 0)
-        && props.skiResorts.map((skiResort) => <SkiResort skiResort={skiResort} key={skiResort.id} />)
+    <div className="" style={ {overflow: 'scroll', height: '100vh'} } >
+      {(props.skiResorts.length != 0 && props.searchBar.length > 0) &&
+      props.skiResorts.map((skiResort) => <SkiResort skiResort={skiResort} key={skiResort.id} />)
       }
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     skiResorts: state.skiResorts,
     searchBar: state.searchBar

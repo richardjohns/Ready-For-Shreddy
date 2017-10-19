@@ -2,7 +2,14 @@
   background-image: url('https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb')
 } */
 
+body {
+    background-image: url('https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .Header {
   font-family: 'Faster One',
   cursive;
 }
+
