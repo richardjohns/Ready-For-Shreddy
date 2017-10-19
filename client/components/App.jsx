@@ -1,6 +1,6 @@
 import React from 'react'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Container from './Container'
+import SkiResorts from './SkiResorts'
 import SearchBar from './SearchBar'
 
 class App extends React.Component {
@@ -13,13 +13,13 @@ class App extends React.Component {
   render () {
     return (
       // <Router>
-      <div>
-        <div className="container">
-          {/* <Container /> */}
-          <SearchBar />
-          <h2>Where would you like to go?</h2>
-        </div>
+
+      <div className="container">
+        {/* <Container /> */}
+        {/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}
+        <SearchBar />
       </div>
+
 
     )
   }

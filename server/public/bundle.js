@@ -11201,9 +11201,9 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Container = __webpack_require__(103);
+var _SkiResorts = __webpack_require__(105);
 
-var _Container2 = _interopRequireDefault(_Container);
+var _SkiResorts2 = _interopRequireDefault(_SkiResorts);
 
 var _SearchBar = __webpack_require__(104);
 
@@ -11240,19 +11240,11 @@ var App = function (_React$Component) {
     value: function render() {
       return (
         // <Router>
+
         _react2.default.createElement(
           'div',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'container' },
-            _react2.default.createElement(_SearchBar2.default, null),
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Where would you like to go?'
-            )
-          )
+          { className: 'container' },
+          _react2.default.createElement(_SearchBar2.default, null)
         )
       );
     }
@@ -11326,55 +11318,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(14);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _SkiResorts = __webpack_require__(105);
-
-var _SkiResorts2 = _interopRequireDefault(_SkiResorts);
-
-var _reactRedux = __webpack_require__(34);
-
-var _data = __webpack_require__(25);
-
-var _data2 = _interopRequireDefault(_data);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Container = function Container(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: '' },
-    props.skiResorts.length != 0 ? props.skiResorts.map(function (skiResort) {
-      return _react2.default.createElement(_SkiResorts2.default, { skiResort: skiResort, key: skiResort.id });
-    }) : _react2.default.createElement(
-      'h1',
-      { className: 'title is-3' },
-      'No Results Found'
-    )
-  );
-};
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    skiResorts: state.skiResorts
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Container);
-
-/***/ }),
+/* 103 */,
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11394,6 +11338,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactRedux = __webpack_require__(34);
 
 var _actions = __webpack_require__(56);
+
+var _SkiResorts = __webpack_require__(105);
+
+var _SkiResorts2 = _interopRequireDefault(_SkiResorts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11440,6 +11388,11 @@ var SearchBar = function (_React$Component) {
           _react2.default.createElement('input', { onChange: function onChange(e) {
               return _this2.handleChange(e);
             }, value: this.state.skiResort, type: 'text', placeholder: 'Search...', className: 'input is-medium' })
+        ),
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Where would you like to go?'
         )
       );
     }
@@ -11461,11 +11414,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _SkiResort = __webpack_require__(234);
+
+var _SkiResort2 = _interopRequireDefault(_SkiResort);
+
+var _reactRedux = __webpack_require__(34);
 
 var _data = __webpack_require__(25);
 
@@ -11473,119 +11430,27 @@ var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Container = function Container(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: '' },
+    props.skiResorts.length != 0 ? props.skiResorts.map(function (skiResort) {
+      return _react2.default.createElement(_SkiResort2.default, { skiResort: skiResort, key: skiResort.id });
+    }) : _react2.default.createElement(
+      'h1',
+      { className: 'title is-3' },
+      'No Results Found'
+    )
+  );
+};
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    skiResorts: state.skiResorts
+  };
+};
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
-
-var SkiResorts = function (_React$Component) {
-  _inherits(SkiResorts, _React$Component);
-
-  function SkiResorts(props) {
-    _classCallCheck(this, SkiResorts);
-
-    var _this = _possibleConstructorReturn(this, (SkiResorts.__proto__ || Object.getPrototypeOf(SkiResorts)).call(this, props));
-
-    _this.state = {};
-    // this.fetchDeal = this.fetchDeal.bind(this)
-    return _this;
-  }
-
-  _createClass(SkiResorts, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'column is-4 is-desktop-only company' },
-        _react2.default.createElement(
-          'article',
-          { 'class': 'media' },
-          _react2.default.createElement(
-            'figure',
-            { 'class': 'media-left' },
-            _react2.default.createElement(
-              'p',
-              { 'class': 'image is-64x64' },
-              _react2.default.createElement('img', { src: '{this.props.skiResort.image} ' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { 'class': 'media-content' },
-            _react2.default.createElement(
-              'div',
-              { 'class': 'content' },
-              _react2.default.createElement(
-                'p',
-                null,
-                _react2.default.createElement(
-                  'strong',
-                  null,
-                  this.props.skiResort.skiResort
-                ),
-                ' ',
-                _react2.default.createElement(
-                  'small',
-                  null,
-                  this.props.skiResort.area
-                ),
-                _react2.default.createElement('br', null),
-                'An amazing venture into the best ski field in New Zealand!'
-              )
-            ),
-            _react2.default.createElement(
-              'nav',
-              { 'class': 'level is-mobile' },
-              _react2.default.createElement(
-                'div',
-                { 'class': 'level-left' },
-                _react2.default.createElement(
-                  'a',
-                  { 'class': 'level-item' },
-                  _react2.default.createElement(
-                    'span',
-                    { 'class': 'icon is-small' },
-                    _react2.default.createElement('i', { 'class': 'fa fa-reply' })
-                  )
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { 'class': 'level-item' },
-                  _react2.default.createElement(
-                    'span',
-                    { 'class': 'icon is-small' },
-                    _react2.default.createElement('i', { 'class': 'fa fa-retweet' })
-                  )
-                ),
-                _react2.default.createElement(
-                  'a',
-                  { 'class': 'level-item' },
-                  _react2.default.createElement(
-                    'span',
-                    { 'class': 'icon is-small' },
-                    _react2.default.createElement('i', { 'class': 'fa fa-heart' })
-                  )
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { 'class': 'media-right' },
-            _react2.default.createElement('button', { 'class': 'delete' })
-          )
-        )
-      );
-    }
-  }]);
-
-  return SkiResorts;
-}(_react2.default.Component);
-
-exports.default = SkiResorts;
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Container);
 
 /***/ }),
 /* 106 */
@@ -11665,7 +11530,7 @@ function skiResorts() {
 
   switch (action.type) {
     case _actions.RECEIVE_SKIRESORTS:
-      return action.deals;
+      return action.skiResorts;
     case _actions.SEARCH_SKIRESORTS:
       return [].concat(_toConsumableArray(_data2.default.skiResorts)).filter(function (skiResort) {
         return skiResort.SkiResort.toLowerCase().includes(action.searchTerm) || skiResort.area.toLowerCase().includes(action.searchTerm);
@@ -24934,6 +24799,143 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _data = __webpack_require__(25);
+
+var _data2 = _interopRequireDefault(_data);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+
+var SkiResorts = function (_React$Component) {
+  _inherits(SkiResorts, _React$Component);
+
+  function SkiResorts(props) {
+    _classCallCheck(this, SkiResorts);
+
+    var _this = _possibleConstructorReturn(this, (SkiResorts.__proto__ || Object.getPrototypeOf(SkiResorts)).call(this, props));
+
+    _this.state = {};
+    // this.fetchDeal = this.fetchDeal.bind(this)
+    return _this;
+  }
+
+  _createClass(SkiResorts, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'column is-4 is-desktop-only company' },
+        _react2.default.createElement(
+          'article',
+          { 'class': 'media' },
+          _react2.default.createElement(
+            'figure',
+            { 'class': 'media-left' },
+            _react2.default.createElement(
+              'p',
+              { 'class': 'image is-64x64' },
+              _react2.default.createElement('img', { src: '{this.props.skiResort.image} ' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { 'class': 'media-content' },
+            _react2.default.createElement(
+              'div',
+              { 'class': 'content' },
+              _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                  'strong',
+                  null,
+                  this.props.skiResort.skiResort
+                ),
+                ' ',
+                _react2.default.createElement(
+                  'small',
+                  null,
+                  this.props.skiResort.area
+                ),
+                _react2.default.createElement('br', null),
+                'An amazing venture into the best ski field in New Zealand!'
+              )
+            ),
+            _react2.default.createElement(
+              'nav',
+              { 'class': 'level is-mobile' },
+              _react2.default.createElement(
+                'div',
+                { 'class': 'level-left' },
+                _react2.default.createElement(
+                  'a',
+                  { 'class': 'level-item' },
+                  _react2.default.createElement(
+                    'span',
+                    { 'class': 'icon is-small' },
+                    _react2.default.createElement('i', { 'class': 'fa fa-reply' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { 'class': 'level-item' },
+                  _react2.default.createElement(
+                    'span',
+                    { 'class': 'icon is-small' },
+                    _react2.default.createElement('i', { 'class': 'fa fa-retweet' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'a',
+                  { 'class': 'level-item' },
+                  _react2.default.createElement(
+                    'span',
+                    { 'class': 'icon is-small' },
+                    _react2.default.createElement('i', { 'class': 'fa fa-heart' })
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { 'class': 'media-right' },
+            _react2.default.createElement('button', { 'class': 'delete' })
+          )
+        )
+      );
+    }
+  }]);
+
+  return SkiResorts;
+}(_react2.default.Component);
+
+exports.default = SkiResorts;
 
 /***/ })
 /******/ ]);
