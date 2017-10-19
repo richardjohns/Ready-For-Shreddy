@@ -9,12 +9,13 @@ import AccomRoutes from './Accom/AccomRoutes'
 class App extends React.Component {
   render () {
     return (
+        <div className="container">
+          <SearchBar />
 
-      <div className="container">
-  {/* <Container /> */}
-  {/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}
-  <SearchBar />
-</div>
+          <AccomRoutes />
+      </div>
+
+
     )
   }
 }
