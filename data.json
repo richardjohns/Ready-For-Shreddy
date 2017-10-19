@@ -1,0 +1,58 @@
+{
+  "skiResorts": [
+    {
+      "id": 1,
+      "skiResort": "Mount Lyford",
+      "image": "http://www.lyfordholidayhomes.co.nz/Image/renamed/eco%20lodge/Mt-Lyford_holiday_homes_accommodation_eco_lodge_luxury_hot-tub_motel.JPG",
+      "area": "Canterbury"
+    },
+    {
+      "id": 2,
+      "skiResort": "Turoa",
+      "image": "https://www.subaru.co.nz/sites/default/files/styles/ratio_3_x_2__2x_small_/public/field/teaser_image/Subaru%20Top%20Weekend%20carpark%202015_0.jpg?itok=ZjcXfDfd",
+      "area": "Mount Ruapehu"
+    },
+    {
+      "id": 3,
+      "skiResort": "Whakapapa",
+      "image": "http://www.lyfordholidayhomes.co.nz/Image/renamed/eco%20lodge/Mt-Lyford_holiday_homes_accommodation_eco_lodge_luxury_hot-tub_motel.JPG",
+      "area": "Mount Ruapehu"
+    },
+    {
+      "id": 4,
+      "skiResort": "Treble Cone",
+      "image": "https://nzfrenzysouth.files.wordpress.com/2013/02/view-down-from-the-top-of-treble-cone-road-over-rocky-mountain-to-lake-wanaka.jpg",
+      "area": "Queenstown"
+    },
+    {
+      "id": 5,
+      "skiResort": "Cardrona",
+      "image": "https://www.cardrona.com/media/1310/cardrona-landscape-2.jpg?anchor=center&mode=crop&width=1920&height=900&rnd=131281002460000000",
+      "area": "Queenstown"
+    },
+    {
+      "id": 6,
+      "skiResort": "Ohau",
+      "image": "http://www.lyfordholidayhomes.co.nz/Image/renamed/eco%20lodge/Mt-Lyford_holiday_homes_accommodation_eco_lodge_luxury_hot-tub_motel.JPG",
+      "area": "Canterbury"
+    },
+    {
+      "id": 7,
+      "skiResort": "Coronet Peak",
+      "image": "http://conciergenz.co.nz/sites/default/files/coronet%20peak.jpg",
+      "area": "Queenstown"
+    },
+    {
+      "id": 8,
+      "skiResort": "The Remarkables",
+      "image": "http://www.planetbluetours.com/wp-content/uploads/2016/03/the-remarkables.jpg",
+      "area": "Queenstown"
+    },
+    {
+      "id": 9,
+      "skiResort": "Mount Cheeseman",
+      "image": "http://www.christchurchnz.com/media/6123/cheeseman.jpg",
+      "area": "Canterbury"
+    }
+  ]
+}
