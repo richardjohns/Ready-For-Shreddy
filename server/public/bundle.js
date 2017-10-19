@@ -11256,6 +11256,10 @@ var _SearchBar = __webpack_require__(104);
 
 var _SearchBar2 = _interopRequireDefault(_SearchBar);
 
+var _Header = __webpack_require__(235);
+
+var _Header2 = _interopRequireDefault(_Header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11291,6 +11295,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'container' },
+          _react2.default.createElement(_Header2.default, null),
           _react2.default.createElement(_SearchBar2.default, null),
           _react2.default.createElement(_SkiResorts2.default, null)
         )
@@ -24964,6 +24969,39 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(34);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Header() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'Header' },
+    _react2.default.createElement(
+      'h1',
+      { className: 'title is-1' },
+      'Ready for Shreddy'
+    )
+  );
+}
+
+exports.default = Header;
 
 /***/ })
 /******/ ]);
