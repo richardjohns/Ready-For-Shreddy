@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
+const resorts = require('./routes/routes')
 
 const server = express()
 
@@ -12,11 +13,7 @@ server.use(express.static(path.join(__dirname, './public')))
 // const zzzz = require('./routes/zzzz')
 
 // server.use('/api/v1/xxx', xxx)
-// server.use('/api/v1/yyy', yyy)
+server.use('/api/v1/resorts', resorts)
 // server.use('/api/v1/zzz', zzz)
-
-// server.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/index.html'))
-// })
 
 module.exports = server
