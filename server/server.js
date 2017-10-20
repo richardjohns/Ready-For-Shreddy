@@ -1,8 +1,10 @@
-var path = require('path')
-var express = require('express')
-var bodyParser = require('body-parser')
+const path = require('path')
+const express = require('express')
+const bodyParser = require('body-parser')
 
-var server = express()
+const server = express()
+
+const request = require('superagent')
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, './public')))
@@ -10,16 +12,30 @@ server.use(express.static(path.join(__dirname, './public')))
 // const APP_ID = b1d7cd0e
 // const APP_KEY = 726b72a42e1b3e722eccc6ef2deecbd1
 
-server.use('/api/v1/snowreport', (req, res) => {
+server.use('/api/v1/snowreport/:id', (req, res) => {
+  const id = Number(req.params.id)
   request
-    .get('api.weatherunlocked.com/api/resortforecast/4424660?hourly_interval=6&app_id=b1d7cd0e&app_key=726b72a42e1b3e722eccc6ef2deecbd1')
+    .get(`https://api.weatherunlocked.com/api/resortforecast/${id}?hourly_interval=6&app_id=b1d7cd0e&app_key=726b72a42e1b3e722eccc6ef2deecbd1`)
+    .set('Accept', 'application/json')
     .end((err, response) => {
       if (err) {
-        console.log(err)
+        // console.log(err)
       } else {
         res.json(response.body)
+        // console.log(response.body)
       }
     })
 })
+// const xxx = require('./routes/xxx')
+// const yyyy = require('./routes/yyyy')
+// const zzzz = require('./routes/zzzz')
+
+// server.use('/api/v1/xxx', xxx)
+// server.use('/api/v1/yyy', yyy)
+// server.use('/api/v1/zzz', zzz)
+
+// server.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, './public/index.html'))
+// })
 
 module.exports = server
