@@ -6,6 +6,7 @@ import SearchBar from './Skiing/SearchBar'
 import Header from './Skiing/Header'
 import AccomRoutes from './Accom/AccomRoutes'
 // import Background from './Skiing/Background'
+import Weather from './Weather'
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
           <SearchBar />
           <SkiResorts />
           <Route path="/accom" component={AccomRoutes} />
+          <Weather />
         </div>
       </div>
 
@@ -28,4 +30,3 @@ class App extends React.Component {
 
 export default App
 
-{/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}

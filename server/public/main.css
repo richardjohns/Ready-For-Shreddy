@@ -21,3 +21,61 @@ body {
 .subtitle {
 color: black;
 }
+
+
+/* CSS for Weather Component */
+.weatherBox {
+  width: 90%;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 5px;
+  background-color: #D1D1D1;
+}
+
+.locationBox {
+  width: 90%;
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+span {
+  /* border: 1px solid black; */
+  padding: 5px;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.dataBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 90%;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.info {
+  flex: 1;
+  /* height: 300px; */
+  border: 1px solid black;
+  margin-right: 10px;
+  padding: 10px;
+}
+.datas {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  /* font-weight: bold; */
+  padding: 5px;
+  background-color: #D1D9E0;
+}
+
+.mapBox {
+  flex: 2;
+  border: 1px solid black;
+  background-image: url('/images/Coronet.png') ;
+  background-position: center;
+}
