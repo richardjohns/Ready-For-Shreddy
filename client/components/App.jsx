@@ -1,7 +1,9 @@
 import React from 'react'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import SkiResorts from './SkiResorts'
-import SearchBar from './SearchBar'
+import SkiResorts from './Skiing/SkiResorts'
+import SearchBar from './Skiing/SearchBar'
+import Header from './Skiing/Header'
+// import Background from './Skiing/Background'
 
 class App extends React.Component {
   // constructor (props) {
@@ -14,15 +16,19 @@ class App extends React.Component {
     return (
       // <Router>
 
-      <div className="container">
-        {/* <Container /> */}
-        {/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}
-        <SearchBar />
+      <div className="container" style={{height: '100vh'}}>
+        {/* <Background /> */}
+        <div className='component' >
+          <Header />
+          <SearchBar />
+          <SkiResorts />
+        </div>
       </div>
-
 
     )
   }
 }
 
 export default App
+
+{/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}
