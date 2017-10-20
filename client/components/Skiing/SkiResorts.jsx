@@ -2,7 +2,6 @@ import React from 'react'
 import SkiResort from './SkiResort'
 import { connect } from 'react-redux'
 
-import data from '../../../data.json'
 
 const SkiResorts = (props) => {
   return (
