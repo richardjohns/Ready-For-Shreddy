@@ -5,11 +5,17 @@ router.use(bodyParser.json())
 
 const db = require('../db/db')
 
-
 router.get('/', (req, res) => {
   db.getResorts()
     .then(result => res.json(result))
 })
 
+router.get('/view/:id', (req, res) => {
+  var id = req.params.id
+  db('Accomodation')
+ 
+})
 
 module.exports = router
+
+// db.getAccoms()

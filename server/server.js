@@ -13,4 +13,8 @@ server.use(express.static(path.join(__dirname, './public')))
 server.use('/api/v1/accoms', accoms)
 server.use('/api/v1/resorts', resorts)
 
+// server.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, './public/index.html'))
+// })
+
 module.exports = server
