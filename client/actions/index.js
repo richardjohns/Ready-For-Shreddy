@@ -1,12 +1,20 @@
-import data from '../../data.json'
+import { getResorts } from '../client-api'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const SEARCH_SKIRESORTS = 'SEARCH_SKIRESORTS'
+export const REQUEST_SKIRESORTS = 'REQUEST_SKIRESORTS'
 export const RECEIVE_SKIRESORTS = 'RECEIVE_SKIRESORTS'
 
 export const requestSkiResorts = () => {
   return {
-    type: RECEIVE_SKIRESORTS
+    type: REQUEST_SKIRESORTS
+  }
+}
+
+export const receiveSkiResorts = (resorts) => {
+  return {
+    type: RECEIVE_SKIRESORTS,
+    resorts: resorts
   }
 }
 
@@ -17,16 +25,28 @@ export const searchSkiResorts = (searchTerm) => {
   }
 }
 
-export const showError = (errorMessage) => {
-  return {
-    type: SHOW_ERROR,
-    errorMessage
+// export const showError = (errorMessage) => {
+//   return {
+//     type: SHOW_ERROR,
+//     errorMessage
+//   }
+// }
+export function searchResorts (searchTerm) {
+  return (dispatch) => {
+    dispatch(searchSkiResorts(searchTerm.toLowerCase()))
   }
 }
 
-export function fetchSkiResorts (searchTerm) {
+
+
+export function fetchSkiResorts () {
   return (dispatch) => {
-    dispatch(requestSkiResorts())
-    dispatch(searchSkiResorts(searchTerm.toLowerCase()))
+    getResorts()
+      .then(resorts => {
+        dispatch(receiveSkiResorts(resorts))
+      })
+      .catch(err => {
+        throw new Error(err.message)
+      })
   }
 }

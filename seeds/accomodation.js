@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
   return knex('Accomodation').del()
     .then(function () {
@@ -14,6 +14,6 @@ exports.seed = function(knex, Promise) {
         {id: 8, name: 'Earnslaw Lodge Motel', intro: 'Fantastic views from our lake facing rooms. Spacious and comfortable. Warm, friendly NZ managers. 1km walk to centre of town.', image: '/images/earnslaw-lodge-motel.jpg', website: 'https://www.queenstownnz.co.nz/accommodation/motels/listing/earnslaw-lodge-motel'},
         {id: 9, name: 'Shades of Arrowtown', intro: 'Shades of Arrowtown offers you a relaxing stay at a convenient central location only a minutes stroll from Arrowtowns main street.', image: '/images/shades-of-arrowtown.jpg', website: 'https://www.queenstownnz.co.nz/accommodation/motels/listing/shades-of-arrowtown'},
         {id: 10, name: 'Shotover Lodge', intro: 'Comfortable self-contained units with a private balcony or patio, just a 7 minutes drive from central Queenstown', image: '/images/shotover-lodge.jpg', website: 'https://www.queenstownnz.co.nz/accommodation/motels/listing/shotover-lodge'}
-              ])
-            })
-        }
+      ])
+    })
+}
