@@ -6,6 +6,7 @@ import SearchBar from './Skiing/SearchBar'
 import Header from './Skiing/Header'
 import AccomRoutes from './Accom/AccomRoutes'
 // import Background from './Skiing/Background'
+import Weather from './Weather'
 
 class App extends React.Component {
   render () {
@@ -21,7 +22,7 @@ class App extends React.Component {
               <SearchBar />
               <SkiResorts />
             </div>} />
-            {/* <Route path="/weather" component={Weather} /> */}
+            <Route path="/weather" component={Weather} />
           </Switch>
         </div>
       </div>
