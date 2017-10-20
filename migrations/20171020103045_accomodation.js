@@ -1,11 +1,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('Accomodation', function(table) {
     table.increments().primary()
-    table.string('a')
-    table.string('b')
-    table.string('c')
-    table.string('d')
-    table.string('e')
+    table.string('name')
+    table.string('intro')
+    table.string('image')
+    table.string('website')
   })
 }
 
