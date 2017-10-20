@@ -1,25 +1,27 @@
 import React from 'react'
+import { HashRouter as Router, Link, Route, Switch  } from 'react-router-dom'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import SkiResorts from './SkiResorts'
-// import SearchBar from './SearchBar'
+import SkiResorts from './Skiing/SkiResorts'
+import SearchBar from './Skiing/SearchBar'
+import Header from './Skiing/Header'
+import AccomRoutes from './Accom/AccomRoutes'
+// import Background from './Skiing/Background'
 import Weather from './Weather'
 
-class App extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
 
-  //   }
-  // }
+class App extends React.Component {
   render () {
     return (
-      // <Router>
 
-      <div className="container">
-        {/* <Container /> */}
-        {/* <img src='https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb' className="image"/> */}
-        {/* <SearchBar /> */}
-        <Weather />
+      <div className="container" style={{height: '100vh'}}>
+        {/* <Background /> */}
+        <div className='component' >
+          <Header />
+          <SearchBar />
+          <SkiResorts />
+          <Route path="/accom" component={AccomRoutes} />
+          <Weather />
+        </div>
       </div>
 
     )
@@ -27,3 +29,4 @@ class App extends React.Component {
 }
 
 export default App
+
