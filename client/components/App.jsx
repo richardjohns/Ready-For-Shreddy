@@ -7,7 +7,6 @@ import Header from './Skiing/Header'
 import AccomRoutes from './Accom/AccomRoutes'
 // import Background from './Skiing/Background'
 
-
 class App extends React.Component {
   render () {
     return (
@@ -17,12 +16,12 @@ class App extends React.Component {
         <div className='component' >
           <Header />
           <Switch>
-          <Route path="/view" component={(props) => <AccomRoutes {...props }/>} />
-          <Route exact path='/' component={(props) => <div>
-            <SearchBar />
-            <SkiResorts />
-          </div>} />
-          {/* <Route path="/weather" component={Weather} /> */}
+            <Route path="/view" component={(props) => <AccomRoutes {...props }/>} />
+            <Route exact path='/' component={(props) => <div>
+              <SearchBar />
+              <SkiResorts />
+            </div>} />
+            {/* <Route path="/weather" component={Weather} /> */}
           </Switch>
         </div>
       </div>
@@ -32,4 +31,3 @@ class App extends React.Component {
 }
 
 export default App
-
