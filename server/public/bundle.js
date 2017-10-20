@@ -4694,7 +4694,8 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.receiveSkiResorts = exports.searchSkiResorts = exports.requestSkiResorts = exports.RECEIVE_SKIRESORTS = exports.REQUEST_SKIRESORTS = exports.SEARCH_SKIRESORTS = exports.SHOW_ERROR = undefined;
+exports.searchSkiResorts = exports.receiveSkiResorts = exports.requestSkiResorts = exports.RECEIVE_SKIRESORTS = exports.REQUEST_SKIRESORTS = exports.SEARCH_SKIRESORTS = exports.SHOW_ERROR = undefined;
+exports.searchResorts = searchResorts;
 exports.fetchSkiResorts = fetchSkiResorts;
 
 var _clientApi = __webpack_require__(105);
@@ -4710,17 +4711,17 @@ var requestSkiResorts = exports.requestSkiResorts = function requestSkiResorts()
   };
 };
 
-var searchSkiResorts = exports.searchSkiResorts = function searchSkiResorts(searchTerm) {
-  return {
-    type: SEARCH_SKIRESORTS,
-    searchTerm: searchTerm
-  };
-};
-
 var receiveSkiResorts = exports.receiveSkiResorts = function receiveSkiResorts(resorts) {
   return {
     type: RECEIVE_SKIRESORTS,
     resorts: resorts
+  };
+};
+
+var searchSkiResorts = exports.searchSkiResorts = function searchSkiResorts(searchTerm) {
+  return {
+    type: SEARCH_SKIRESORTS,
+    searchTerm: searchTerm
   };
 };
 
@@ -4730,15 +4731,19 @@ var receiveSkiResorts = exports.receiveSkiResorts = function receiveSkiResorts(r
 //     errorMessage
 //   }
 // }
+function searchResorts(searchTerm) {
+  return function (dispatch) {
+    dispatch(searchSkiResorts(searchTerm.toLowerCase()));
+  };
+}
 
-function fetchSkiResorts(searchTerm) {
+function fetchSkiResorts() {
   return function (dispatch) {
     (0, _clientApi.getResorts)().then(function (resorts) {
       dispatch(receiveSkiResorts(resorts));
     }).catch(function (err) {
       throw new Error(err.message);
     });
-    dispatch(searchSkiResorts(searchTerm.toLowerCase()));
   };
 }
 
@@ -6747,16 +6752,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var SkiResorts = function SkiResorts(props) {
   return _react2.default.createElement(
     'div',
-    { className: '', style: { overflow: 'scroll', height: '100vh' } },
-    props.skiResorts.length != 0 && props.searchBar.length > 0 && props.skiResorts.map(function (skiResort) {
-      return _react2.default.createElement(_SkiResort2.default, { skiResort: skiResort, key: skiResort.id });
-    })
+    null,
+    props.skiResorts.length != 0 && props.searchBar.length > 0 && _react2.default.createElement(
+      'div',
+      { className: '', style: { overflow: 'scroll', height: '100vh' } },
+      props.skiResorts.map(function (skiResort) {
+        return _react2.default.createElement(_SkiResort2.default, { skiResort: skiResort, key: skiResort.id });
+      })
+    )
   );
 };
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    skiResorts: state.skiResorts,
+    skiResorts: state.skiResorts.search,
     searchBar: state.searchBar
   };
 };
@@ -11325,7 +11334,7 @@ var App = function (_React$Component) {
 
         _react2.default.createElement(
           'div',
-          { className: 'container' },
+          { className: 'container', style: { height: '100vh' } },
           _react2.default.createElement(
             'div',
             { className: 'component' },
@@ -11521,12 +11530,17 @@ var SearchBar = function (_React$Component) {
   }
 
   _createClass(SearchBar, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.dispatch((0, _actions.fetchSkiResorts)());
+    }
+  }, {
     key: 'handleChange',
     value: function handleChange(evt) {
       this.setState({
         skiResort: evt.target.value
       });
-      this.props.dispatch((0, _actions.fetchSkiResorts)(evt.target.value));
+      this.props.dispatch((0, _actions.searchResorts)(evt.target.value));
     }
   }, {
     key: 'render',
@@ -11535,7 +11549,7 @@ var SearchBar = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'field' },
+        { className: 'field', style: { marginTop: this.props.resorts.length == 0 ? '40vh' : '10vh' } },
         _react2.default.createElement(
           'span',
           { className: 'control' },
@@ -11555,7 +11569,13 @@ var SearchBar = function (_React$Component) {
   return SearchBar;
 }(_react2.default.Component);
 
-exports.default = (0, _reactRedux.connect)()(SearchBar);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    resorts: state.skiResorts.search
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(SearchBar);
 
 /***/ }),
 /* 108 */
@@ -11789,18 +11809,28 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var intitialskiResorts = [];
 
 function skiResorts() {
-  var resorts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : intitialskiResorts;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { search: [], resorts: [] };
   var action = arguments[1];
 
   switch (action.type) {
     case _actions.RECEIVE_SKIRESORTS:
-      return action.resorts;
+      return {
+        search: [],
+        resorts: action.resorts
+      };
     case _actions.SEARCH_SKIRESORTS:
-      return [].concat(_toConsumableArray(resorts)).filter(function (skiResort) {
-        return skiResort.skiResort.toLowerCase().includes(action.searchTerm) || skiResort.area.toLowerCase().includes(action.searchTerm);
-      });
+      if (action.searchTerm.length == 0) return {
+        search: [],
+        resorts: state.resorts
+      };
+      return {
+        resorts: [].concat(_toConsumableArray(state.resorts)),
+        search: [].concat(_toConsumableArray(state.resorts)).filter(function (resort) {
+          return resort.ski_resort.toLowerCase().includes(action.searchTerm) || resort.area.toLowerCase().includes(action.searchTerm);
+        })
+      };
     default:
-      return resorts;
+      return state;
   }
 }
 

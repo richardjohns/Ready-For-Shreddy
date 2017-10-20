@@ -11,17 +11,17 @@ export const requestSkiResorts = () => {
   }
 }
 
-export const searchSkiResorts = (searchTerm) => {
-  return {
-    type: SEARCH_SKIRESORTS,
-    searchTerm
-  }
-}
-
 export const receiveSkiResorts = (resorts) => {
   return {
     type: RECEIVE_SKIRESORTS,
     resorts: resorts
+  }
+}
+
+export const searchSkiResorts = (searchTerm) => {
+  return {
+    type: SEARCH_SKIRESORTS,
+    searchTerm
   }
 }
 
@@ -31,8 +31,15 @@ export const receiveSkiResorts = (resorts) => {
 //     errorMessage
 //   }
 // }
+export function searchResorts (searchTerm) {
+  return (dispatch) => {
+    dispatch(searchSkiResorts(searchTerm.toLowerCase()))
+  }
+}
 
-export function fetchSkiResorts (searchTerm) {
+
+
+export function fetchSkiResorts () {
   return (dispatch) => {
     getResorts()
       .then(resorts => {
@@ -41,6 +48,5 @@ export function fetchSkiResorts (searchTerm) {
       .catch(err => {
         throw new Error(err.message)
       })
-    dispatch(searchSkiResorts(searchTerm.toLowerCase()))
   }
 }

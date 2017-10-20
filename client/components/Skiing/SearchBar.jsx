@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchSkiResorts } from '../../actions'
+import { fetchSkiResorts, searchResorts } from '../../actions'
 import SkiResorts from './SkiResorts'
 
 class SearchBar extends React.Component {
@@ -11,17 +11,19 @@ class SearchBar extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
   }
-
+  componentDidMount() {
+    this.props.dispatch(fetchSkiResorts())
+  }
   handleChange (evt) {
     this.setState({
       skiResort: evt.target.value
     })
-    this.props.dispatch(fetchSkiResorts(evt.target.value))
+    this.props.dispatch(searchResorts(evt.target.value))
   }
 
   render () {
     return (
-      <div className="field">
+      <div className="field" style={{marginTop: this.props.resorts.length == 0 ? '40vh' : '10vh'}}>
         <span className="control">
           <input onChange={(e) => this.handleChange(e)} value={this.state.skiResort} type="text" placeholder="Search..." className="input is-medium" />
         </span>
@@ -32,4 +34,10 @@ class SearchBar extends React.Component {
   }
 }
 
-export default connect()(SearchBar)
+const mapStateToProps = (state) => {
+  return {
+    resorts: state.skiResorts.search
+  }
+}
+
+export default connect(mapStateToProps)(SearchBar)
