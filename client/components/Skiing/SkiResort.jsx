@@ -1,6 +1,5 @@
 import React from 'react'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import data from '../../../data.json'
 
 class SkiResorts extends React.Component {
   constructor (props) {
@@ -16,15 +15,15 @@ class SkiResorts extends React.Component {
         <article className="media">
           <figure className="media-left">
             <p className="image is-64x64">
-              <img src={this.props.skiResort.image} />
+              <img src={this.props.skiResort.url} />
             </p>
           </figure>
           <div className="media-content">
             <div className="content">
-              <p>
-                <strong>{this.props.skiResort.skiResort}</strong> <small>{this.props.skiResort.area}</small>
+              <p className='has-text-weight-bold has-text-black-bis'>
+                <strong>{this.props.skiResort.ski_resort}</strong> <small>{this.props.skiResort.area}</small>
                 <br />
-                An amazing venture into the best ski field in New Zealand!
+                {this.props.skiResort.description}
               </p>
             </div>
             <nav className="level is-mobile">
