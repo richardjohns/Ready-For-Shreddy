@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 
-import getAccoms from '../../client-api'
+import { getAccoms } from '../../client-api'
 
 
 class AccomRoutes extends React.Component {
@@ -27,6 +27,7 @@ class AccomRoutes extends React.Component {
   }
 
   render() {
+    const accoms = this.state.accoms
     return (
       <div className = 'accom-routes'>
         <h1>  Accom </h1>

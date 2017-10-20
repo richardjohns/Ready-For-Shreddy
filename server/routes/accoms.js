@@ -5,8 +5,10 @@ router.use(bodyParser.json())
 
 const db = require('../db/db')
 
-router.get('accoms', (req, res) => {
+router.get('/accoms', (req, res) => {
   db.getAccoms()
     .then(result => {res.json(result)})
     .catch(err => res.status(500).end)
 })
+
+module.exports = router
