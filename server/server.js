@@ -1,19 +1,16 @@
-const path = require('path')
 const express = require('express')
-const bodyParser = require('body-parser')
-const resorts = require('./routes/routes')
 
+const path = require('path')
+const bodyParser = require('body-parser')
 const server = express()
+
+const accoms = require('./routes/accoms')
+const resorts = require('./routes/routes')
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, './public')))
 
-// const xxx = require('./routes/xxx')
-// const yyyy = require('./routes/yyyy')
-// const zzzz = require('./routes/zzzz')
-
-// server.use('/api/v1/xxx', xxx)
+server.use('/api/v1/accoms', accoms)
 server.use('/api/v1/resorts', resorts)
-// server.use('/api/v1/zzz', zzz)
 
 module.exports = server

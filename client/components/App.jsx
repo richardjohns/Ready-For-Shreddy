@@ -1,20 +1,16 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import SkiResorts from './Skiing/SkiResorts'
 import SearchBar from './Skiing/SearchBar'
 import Header from './Skiing/Header'
+import AccomRoutes from './Accom/AccomRoutes'
 // import Background from './Skiing/Background'
 
-class App extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
 
-  //   }
-  // }
+class App extends React.Component {
   render () {
     return (
-      // <Router>
 
       <div className="container" style={{height: '100vh'}}>
         {/* <Background /> */}
@@ -22,6 +18,7 @@ class App extends React.Component {
           <Header />
           <SearchBar />
           <SkiResorts />
+          <AccomRoutes />
         </div>
       </div>
 
