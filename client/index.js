@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
+import reducers from './reducers'
 
 import App from './components/App'
-
-import reducers from './reducers'
 
 let store = createStore(reducers, compose(
   applyMiddleware(thunkMiddleware),
