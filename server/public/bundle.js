@@ -12806,7 +12806,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //================================================
 function getAccoms() {
-  return _superagent2.default.get('/api/v1/accoms/accoms').then(function (result) {
+  return _superagent2.default.get('/api/v1/accoms/').then(function (result) {
     var accoms = result.body;
     return accoms;
   }).catch(function (err) {
@@ -12883,16 +12883,14 @@ var AccomRoutes = function (_React$Component) {
         'div',
         { className: 'accom-routes' },
         _react2.default.createElement(
-          'h1',
-          null,
-          '  Accom '
-        ),
-        _react2.default.createElement(
           'ul',
           null,
           accoms.map(function (accom) {
             var id = accom.id,
-                name = accom.name;
+                name = accom.name,
+                intro = accom.intro,
+                image = accom.image,
+                website = accom.website;
 
             return _react2.default.createElement(
               'div',
@@ -12905,6 +12903,29 @@ var AccomRoutes = function (_React$Component) {
                   null,
                   name
                 )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  intro
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  website
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement('img', { src: image, alt: '', height: '200', width: '200' })
               )
             );
           })

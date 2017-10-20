@@ -1,7 +1,7 @@
 import request from 'superagent'
 //================================================
 export function getAccoms() {
-  return request.get('/api/v1/accoms/accoms')
+  return request.get('/api/v1/accoms/')
     .then(result => {
       const accoms = result.body
       return accoms

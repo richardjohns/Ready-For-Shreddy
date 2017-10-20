@@ -6,10 +6,9 @@ import AccomRoutes from './Accom/AccomRoutes'
 class App extends React.Component {
   render () {
     return (
-        <div className="container">
-          <Route>
-
-            <AccomRoutes />
+      <div className="container">
+        <Route>
+          <AccomRoutes />
         </Route>
       </div>
     )

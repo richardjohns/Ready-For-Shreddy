@@ -30,12 +30,14 @@ class AccomRoutes extends React.Component {
     const accoms = this.state.accoms
     return (
       <div className = 'accom-routes'>
-        <h1>  Accom </h1>
         <ul>
           {accoms.map(accom => {
-            const {id, name} = accom
+            const {id, name, intro, image, website} = accom
             return <div key={id}>
               <li><h5>{name}</h5></li>
+              <li><p>{intro}</p></li>
+              <li><p>{website}</p></li>
+              <li><img src={image} alt="" height="200" width="200"></img></li>
             </div>
           })}
         </ul>
