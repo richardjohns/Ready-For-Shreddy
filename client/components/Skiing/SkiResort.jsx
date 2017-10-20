@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class SkiResorts extends React.Component {
   constructor (props) {
@@ -20,7 +20,7 @@ class SkiResorts extends React.Component {
           </figure>
           <div className="media-content">
             <div className="content">
-              <p className='has-text-weight-bold has-text-black-bis'><Link to='/accom'>
+              <p className='has-text-weight-bold has-text-black-bis'><Link to='/view/:id'>
                 <strong>{this.props.skiResort.ski_resort}</strong></Link> <small>{this.props.skiResort.area}</small>
               <br />
               {this.props.skiResort.description}

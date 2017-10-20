@@ -42,4 +42,8 @@ server.use('/api/v1/snowreport/:id', (req, res) => {
 server.use('/api/v1/accoms', accoms)
 server.use('/api/v1/resorts', resorts)
 
+// server.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, './public/index.html'))
+// })
+
 module.exports = server
