@@ -11641,7 +11641,7 @@ var SkiResorts = function (_React$Component) {
                 _react2.default.createElement(
                   "strong",
                   null,
-                  this.props.skiResort.skiResort
+                  this.props.skiResort.ski_resort
                 ),
                 " ",
                 _react2.default.createElement(

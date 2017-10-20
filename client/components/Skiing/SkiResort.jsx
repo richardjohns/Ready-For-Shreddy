@@ -21,7 +21,7 @@ class SkiResorts extends React.Component {
           <div className="media-content">
             <div className="content">
               <p className='has-text-weight-bold has-text-black-bis'>
-                <strong>{this.props.skiResort.skiResort}</strong> <small>{this.props.skiResort.area}</small>
+                <strong>{this.props.skiResort.ski_resort}</strong> <small>{this.props.skiResort.area}</small>
                 <br />
                 {this.props.skiResort.description}
               </p>
