@@ -12823,7 +12823,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(_Header2.default, null),
           _react2.default.createElement(_SearchBar2.default, null),
           _react2.default.createElement(_SkiResorts2.default, null),
-          _react2.default.createElement(_AccomRoutes2.default, null)
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/accom', component: _AccomRoutes2.default })
         )
       );
     }
@@ -13179,6 +13179,8 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(40);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13186,8 +13188,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 var SkiResorts = function (_React$Component) {
   _inherits(SkiResorts, _React$Component);
@@ -13203,87 +13203,91 @@ var SkiResorts = function (_React$Component) {
   }
 
   _createClass(SkiResorts, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "column is-4 is-desktop-only company" },
+        'div',
+        { className: 'column is-4 is-desktop-only company' },
         _react2.default.createElement(
-          "article",
-          { className: "media" },
+          'article',
+          { className: 'media' },
           _react2.default.createElement(
-            "figure",
-            { className: "media-left" },
+            'figure',
+            { className: 'media-left' },
             _react2.default.createElement(
-              "p",
-              { className: "image is-64x64" },
-              _react2.default.createElement("img", { src: this.props.skiResort.url })
+              'p',
+              { className: 'image is-64x64' },
+              _react2.default.createElement('img', { src: this.props.skiResort.url })
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "media-content" },
+            'div',
+            { className: 'media-content' },
             _react2.default.createElement(
-              "div",
-              { className: "content" },
+              'div',
+              { className: 'content' },
               _react2.default.createElement(
-                "p",
-                { className: "has-text-weight-bold has-text-black-bis" },
+                'p',
+                { className: 'has-text-weight-bold has-text-black-bis' },
                 _react2.default.createElement(
-                  "strong",
-                  null,
-                  this.props.skiResort.ski_resort
+                  _reactRouterDom.Link,
+                  { to: '/accom' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    this.props.skiResort.ski_resort
+                  )
                 ),
-                " ",
+                ' ',
                 _react2.default.createElement(
-                  "small",
+                  'small',
                   null,
                   this.props.skiResort.area
                 ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement('br', null),
                 this.props.skiResort.description
               )
             ),
             _react2.default.createElement(
-              "nav",
-              { className: "level is-mobile" },
+              'nav',
+              { className: 'level is-mobile' },
               _react2.default.createElement(
-                "div",
-                { className: "level-left" },
+                'div',
+                { className: 'level-left' },
                 _react2.default.createElement(
-                  "a",
-                  { className: "level-item" },
+                  'a',
+                  { className: 'level-item' },
                   _react2.default.createElement(
-                    "span",
-                    { className: "icon is-small" },
-                    _react2.default.createElement("i", { className: "fa fa-reply" })
+                    'span',
+                    { className: 'icon is-small' },
+                    _react2.default.createElement('i', { className: 'fa fa-reply' })
                   )
                 ),
                 _react2.default.createElement(
-                  "a",
-                  { className: "level-item" },
+                  'a',
+                  { className: 'level-item' },
                   _react2.default.createElement(
-                    "span",
-                    { className: "icon is-small" },
-                    _react2.default.createElement("i", { className: "fa fa-retweet" })
+                    'span',
+                    { className: 'icon is-small' },
+                    _react2.default.createElement('i', { className: 'fa fa-retweet' })
                   )
                 ),
                 _react2.default.createElement(
-                  "a",
-                  { className: "level-item" },
+                  'a',
+                  { className: 'level-item' },
                   _react2.default.createElement(
-                    "span",
-                    { className: "icon is-small" },
-                    _react2.default.createElement("i", { className: "fa fa-heart" })
+                    'span',
+                    { className: 'icon is-small' },
+                    _react2.default.createElement('i', { className: 'fa fa-heart' })
                   )
                 )
               )
             )
           ),
           _react2.default.createElement(
-            "div",
-            { className: "media-right" },
-            _react2.default.createElement("button", { className: "delete" })
+            'div',
+            { className: 'media-right' },
+            _react2.default.createElement('button', { className: 'delete' })
           )
         )
       );

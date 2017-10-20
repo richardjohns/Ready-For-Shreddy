@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Link, Route, Switch  } from 'react-router-dom'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import SkiResorts from './Skiing/SkiResorts'
 import SearchBar from './Skiing/SearchBar'
@@ -18,7 +18,7 @@ class App extends React.Component {
           <Header />
           <SearchBar />
           <SkiResorts />
-          <AccomRoutes />
+          <Route path="/accom" component={AccomRoutes} />
         </div>
       </div>
 
