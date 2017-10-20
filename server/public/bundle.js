@@ -11558,9 +11558,13 @@ var SearchBar = function (_React$Component) {
             }, value: this.state.skiResort, type: 'text', placeholder: 'Search...', className: 'input is-medium' })
         ),
         _react2.default.createElement(
-          'h2',
-          null,
-          'Where would you like to go?'
+          'div',
+          { className: 'subtitle has-text-centered is-4' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Where would you like to go?'
+          )
         )
       );
     }

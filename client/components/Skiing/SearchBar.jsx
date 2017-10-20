@@ -27,7 +27,9 @@ class SearchBar extends React.Component {
         <span className="control">
           <input onChange={(e) => this.handleChange(e)} value={this.state.skiResort} type="text" placeholder="Search..." className="input is-medium" />
         </span>
-        <h2>Where would you like to go?</h2>
+        <div className="subtitle has-text-centered is-4">
+          <h2>Where would you like to go?</h2>
+        </div>
         {/* <Container /> */}
       </div>
     )

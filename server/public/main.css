@@ -15,5 +15,10 @@ body {
 
 .title {
   color: white;
+  text-align: center;
+  font-size: 350px;
 }
 
+.subtitle {
+color: black;
+}
