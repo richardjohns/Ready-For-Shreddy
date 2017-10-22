@@ -18,6 +18,7 @@ server.use('/api/v1/snowreport/:id', (req, res) => {
   const id = Number(req.params.id)
   request
     .get(`https://api.weatherunlocked.com/api/resortforecast/${id}?hourly_interval=6&app_id=b1d7cd0e&app_key=726b72a42e1b3e722eccc6ef2deecbd1`)
+    // set sets the header of the request in the format required by the api.
     .set('Accept', 'application/json')
     .end((err, response) => {
       if (err) {

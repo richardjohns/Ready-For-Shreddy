@@ -14,10 +14,11 @@ export function getResortReport (skiField, callback) {
     })
 }
 
-
 // ================================================
 export function getAccoms () {
-  return request.get('/api/v1/accoms/')
+  return 
+  request
+    .get('/api/v1/accoms/')
     .then(result => {
       const accoms = result.body
       return accoms
@@ -28,7 +29,9 @@ export function getAccoms () {
 }
 
 export function getResorts () {
-  return request.get('/api/v1/resorts')
+  return 
+  request
+    .get('/api/v1/resorts')
     .then(result => {
       console.log(result)
       const resorts = result.body

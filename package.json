@@ -6,6 +6,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "webpack && node server",
+    "knex": "knex",
     "dev": "nodemon --watch server & webpack --watch",
     "test": "tape -r babel-register 'test/**/*.test.js' | tap-diff"
   },
